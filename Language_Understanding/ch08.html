@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>结语：理解定义的迁移 — 语言理解的探索历程</title>
+  <style>
+    :root {
+      --max-width: 800px;
+      --font-size: 16px;
+      --line-height: 1.8;
+      --color-bg: #fff;
+      --color-text: #333;
+      --color-muted: #666;
+      --color-link: #0366d6;
+      --color-nav-bg: #f5f5f5;
+      --color-border: #ddd;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC", sans-serif;
+      font-size: var(--font-size);
+      line-height: var(--line-height);
+      color: var(--color-text);
+      background: var(--color-bg);
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 1rem 1.5rem 3rem;
+    }
+    nav {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 0.6rem 0; margin-bottom: 1.5rem;
+      border-bottom: 1px solid var(--color-border);
+      font-size: 0.9rem; flex-wrap: wrap; gap: 0.3rem;
+    }
+    nav.bottom { border-top: 1px solid var(--color-border); border-bottom: none; margin-top: 2rem; }
+    nav a { color: var(--color-link); text-decoration: none; padding: 0.2rem 0.5rem; }
+    nav a:hover { text-decoration: underline; }
+    .nav-left, .nav-right, .nav-center { display: flex; gap: 0.5rem; align-items: center; }
+    h1 { font-size: 1.6rem; margin: 0 0 0.8rem; }
+    h2 { font-size: 1.3rem; margin: 1.5rem 0 0.6rem; border-bottom: 1px solid var(--color-border); padding-bottom: 0.3rem; }
+    h3 { font-size: 1.1rem; margin: 1.2rem 0 0.5rem; }
+    h4 { font-size: 1rem; margin: 1rem 0 0.4rem; }
+    p { margin: 0.6rem 0; }
+    blockquote {
+      margin: 0.8rem 0; padding: 0.4rem 1rem;
+      border-left: 3px solid var(--color-link); color: var(--color-muted); background: #f8f8f8;
+    }
+    pre { margin: 0.8rem 0; padding: 0.8rem 1rem; background: #f4f4f4; border-radius: 4px; overflow-x: auto; font-size: 0.85rem; }
+    code { font-family: "SF Mono", "Cascadia Code", "Consolas", monospace; font-size: 0.9em; }
+    pre code { font-size: 0.85em; }
+    figure { margin: 1.2rem 0; text-align: center; }
+    figure img { max-width: 100%; height: auto; border: 1px solid var(--color-border); border-radius: 4px; }
+    figcaption { font-size: 0.9rem; color: var(--color-muted); margin-top: 0.4rem; }
+    .section-footnotes { font-size: 0.9rem; color: var(--color-muted); padding: 0.5rem 0; }
+    .section-footnotes ol { padding-left: 1.5rem; }
+    .section-footnotes li { margin: 0.2rem 0; }
+    .footnote-ref { font-size: 0.8em; vertical-align: super; line-height: 1; }
+    .footnote-backref { font-size: 0.85em; text-decoration: none; }
+    table { margin: 0.8rem 0; border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--color-border); padding: 0.4rem 0.6rem; text-align: left; }
+    th { background: #f5f5f5; }
+    @media (max-width: 600px) {
+      body { padding: 0.5rem 0.8rem 2rem; font-size: 15px; }
+      nav { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+<nav class="top-nav">
+  <div class="nav-left"><a href="ch07.html" class="prev">← 第七章 问题与讨论：理解的深层争议</a></div>
+  <div class="nav-center"><a href="index.html">目录</a></div>
+  <div class="nav-right"><a href="appendix.html" class="next">附录：各章思考题参考讨论 →</a></div>
+</nav>
+<main>
+<h1>结语：理解定义的迁移</h1>
+
+<h3 id="定义迁移的总轨迹">8.1 定义迁移的总轨迹</h3>
+<p>自然语言理解的发展可以概括为五次主要迁移：从图灵测试式的行为定义，到机器翻译式的等价转换定义；从专项任务式的分解定义，到大模型时代的交互定义；再到今天逐渐凸显的行动定义。这一系列变化说明，研究的核心变化并不只是模型更强，而是”什么算理解”的判据不断改变。每一次迁移，都会重新引起研究重点、技术路线和评测体系的变革。</p>
+<h3 id="转向机制">8.2 转向机制</h3>
+<p>这些迁移通常由两种力量共同推动。第一是必要性：旧定义不再足以回应新的科学问题或应用需求。每一次迁移都发生在旧定义仍然”有用”但已不再”足够”的时刻——行为定义没有消失，机器翻译没有失效，benchmark
+也没有被放弃，但它们都在某一阶段暴露出无法独自承担全部研究任务的局限。行为定义受限于人工判断，等价转换定义受限于工程难度，分解定义受限于任务饱和与捷径学习，交互定义受限于”会说不等于会做”，而行动定义则仍受限于标准化和归因难题。这些限制解释了为什么理解定义总是在迁移。</p>
+<p>第二是可行性：新的定义之所以能出现，往往是因为新的技术和组织条件使其变得可行——没有共享语料和
+benchmark，分解定义不会出现；没有深度学习的技术发展，分解定义的探索也不会快速发展和成熟；没有大规模用户使用和在线反馈，交互定义和行动定义也难以大规模发生。</p>
+<h3 id="机器翻译的中轴作用">8.3 机器翻译的中轴作用</h3>
+<p>由于语言、智能的独特性，机器翻译在这一历史变迁中始终是一条最关键的中轴线索。它早期把”理解”转化为跨语言转换这一强有力的可操作性定义；它在规则时期推动语法、词典和知识工程；在统计时期推动概率建模和自动评测；在神经时期又成为注意力机制和端到端建模的重要舞台。更重要的是，它还间接催生了大量后来独立发展的局部任务。在技术方面，注意力机制最早在机器翻译任务中获得验证
+(Bahdanau et al., 2015)， Transformer 架构同样首先在翻译任务中得到确立
+(Vaswani et al., 2017)，最终经由 BERT
+的预训练范式发展为通用的语言理解技术 (Devlin et al.,
+2019)。当基本的翻译转换已经达到较高的水平，理解不同语言的输入、并且使用对应语言进行思考推理并最终完成任务，成为对模型多语言能力更好的要求，在某种程度上仍然推动着大模型研究的进一步发展。</p>
+<h4 id="参考文献">参考文献</h4>
+<p>Bahdanau, Dzmitry, Kyunghyun Cho, and Yoshua Bengio. 2015. Neural
+machine translation by jointly learning to align and translate. In
+<em>Proceedings of ICLR 2015</em>.</p>
+<p>Vaswani, Ashish, Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion
+Jones, Aidan N. Gomez, Łukasz Kaiser, and Illia Polosukhin. 2017.
+Attention is all you need. In <em>Advances in Neural Information
+Processing Systems 30 (NeurIPS 2017)</em>, pages 5998–6008.</p>
+<p>Devlin, Jacob, Ming-Wei Chang, Kenton Lee, and Kristina Toutanova.
+2019. BERT: Pre-training of deep bidirectional transformers for language
+understanding. In <em>Proceedings of the 2019 Conference of the North
+American Chapter of the Association for Computational Linguistics: Human
+Language Technologies, Volume 1 (Long and Short Papers)</em>, pages
+4171–4186. Association for Computational Linguistics.</p>
+<h3 id="未来定义的开放性">8.4 未来定义的开放性</h3>
+<p>从今天的视角看，行动定义或许仍不是终点。随着多智能体协作、长期记忆系统、持续学习、具身交互和标准化评测的发展，未来关于”理解”的定义还可能继续变化。新的定义未必会完全否定旧定义，而更可能是在保留其某些成分的同时，引入新的判据与约束。因此，自然语言理解研究的历史并不通向一个固定终点，而更像是一系列不断被重写的答案：每个时代都在根据自己的技术条件和应用需求，重新回答”什么叫作理解”。</p>
+<p>从这一点看，研究自然语言理解史的真正价值，不只是回顾技术成就，更是理解这一领域如何通过任务、评测和共享机制来不断塑造自己的对象。所谓”理解”，从来不是一个静止的名词，而是一种不断被实践、被争论、被重写的研究构造。也正因为如此，自然语言理解史不是一条简单上升的进步线，而是一部围绕”理解证据”不断展开的定义迁移史。</p>
+<h3 id="本章思考题">8.5 本章思考题</h3>
+<p><em>参考讨论见附录”结语思考题参考讨论”。</em></p>
+<ol type="1">
+<li>回看全文，不同阶段的”理解定义”究竟是彼此替代，还是层层叠加？</li>
+<li>为什么每一种更强的定义，往往都会在带来推进的同时，重新收缩”理解”的含义？</li>
+<li>机器翻译在理解探索中扮演了什么角色？为什么它会有这样的重要性？</li>
+<li>如果用一句话概括全文的历史逻辑，是否可以说：自然语言理解研究并不是越来越接近一个固定答案，而是在不断更换”什么算证据”的标准？</li>
+<li>未来新的理解定义，更可能来自模型内部能力的提升，还是来自新的任务体系、评测环境与应用场景？</li>
+<li>是否应该接受这样一种观点：自然语言理解永远不会有一个终极、封闭的定义，而只会有不断升级的历史性外部判据？为什么？</li>
+</ol>
+<hr />
+</main>
+<nav class="bottom-nav top-nav">
+  <div class="nav-left"><a href="ch07.html" class="prev">← 第七章 问题与讨论：理解的深层争议</a></div>
+  <div class="nav-center"><a href="index.html">目录</a></div>
+  <div class="nav-right"><a href="appendix.html" class="next">附录：各章思考题参考讨论 →</a></div>
+</nav>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>摘要 — 语言理解的探索历程</title>
+  <style>
+    :root {
+      --max-width: 800px;
+      --font-size: 16px;
+      --line-height: 1.8;
+      --color-bg: #fff;
+      --color-text: #333;
+      --color-muted: #666;
+      --color-link: #0366d6;
+      --color-nav-bg: #f5f5f5;
+      --color-border: #ddd;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC", sans-serif;
+      font-size: var(--font-size);
+      line-height: var(--line-height);
+      color: var(--color-text);
+      background: var(--color-bg);
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 1rem 1.5rem 3rem;
+    }
+    nav {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 0.6rem 0; margin-bottom: 1.5rem;
+      border-bottom: 1px solid var(--color-border);
+      font-size: 0.9rem; flex-wrap: wrap; gap: 0.3rem;
+    }
+    nav.bottom { border-top: 1px solid var(--color-border); border-bottom: none; margin-top: 2rem; }
+    nav a { color: var(--color-link); text-decoration: none; padding: 0.2rem 0.5rem; }
+    nav a:hover { text-decoration: underline; }
+    .nav-left, .nav-right, .nav-center { display: flex; gap: 0.5rem; align-items: center; }
+    h1 { font-size: 1.6rem; margin: 0 0 0.8rem; }
+    h2 { font-size: 1.3rem; margin: 1.5rem 0 0.6rem; border-bottom: 1px solid var(--color-border); padding-bottom: 0.3rem; }
+    h3 { font-size: 1.1rem; margin: 1.2rem 0 0.5rem; }
+    h4 { font-size: 1rem; margin: 1rem 0 0.4rem; }
+    p { margin: 0.6rem 0; }
+    blockquote {
+      margin: 0.8rem 0; padding: 0.4rem 1rem;
+      border-left: 3px solid var(--color-link); color: var(--color-muted); background: #f8f8f8;
+    }
+    pre { margin: 0.8rem 0; padding: 0.8rem 1rem; background: #f4f4f4; border-radius: 4px; overflow-x: auto; font-size: 0.85rem; }
+    code { font-family: "SF Mono", "Cascadia Code", "Consolas", monospace; font-size: 0.9em; }
+    pre code { font-size: 0.85em; }
+    figure { margin: 1.2rem 0; text-align: center; }
+    figure img { max-width: 100%; height: auto; border: 1px solid var(--color-border); border-radius: 4px; }
+    figcaption { font-size: 0.9rem; color: var(--color-muted); margin-top: 0.4rem; }
+    .section-footnotes { font-size: 0.9rem; color: var(--color-muted); padding: 0.5rem 0; }
+    .section-footnotes ol { padding-left: 1.5rem; }
+    .section-footnotes li { margin: 0.2rem 0; }
+    .footnote-ref { font-size: 0.8em; vertical-align: super; line-height: 1; }
+    .footnote-backref { font-size: 0.85em; text-decoration: none; }
+    table { margin: 0.8rem 0; border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--color-border); padding: 0.4rem 0.6rem; text-align: left; }
+    th { background: #f5f5f5; }
+    @media (max-width: 600px) {
+      body { padding: 0.5rem 0.8rem 2rem; font-size: 15px; }
+      nav { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+<nav class="top-nav">
+  <div class="nav-left"></div>
+  <div class="nav-center"><a href="index.html">目录</a></div>
+  <div class="nav-right"><a href="ch01.html" class="next">第一章 引言：语言理解及其可操作化定义 →</a></div>
+</nav>
+<main>
+<h1>摘要</h1>
+<p>从抽象意义上说，所谓”理解”语言，并不是对语言形式的机械识别，而是把表达与语义、语境、意图、推理后果和可能行动联系起来的能力。这既涉及语言内部的意义组织，也涉及语言与世界、语言与使用者、语言与行动之间的关系。也正因为如此，语言理解始终既是自然语言乃至人工智能研究最核心的目标之一，也是最难被直接观察和统一界定的概念之一。</p>
+<p>本文把语言理解研究的发展，看作研究者不断为”理解”语言寻找外部证据和研究判据的过程。这种外部证据和研究判据被称为语言理解的”可操作性定义”，这既是在从技术上追求达到理解，也在尝试思考究竟什么是理解，什么才能作为理解的证据。</p>
+<p>在这一视角下，早期阶段把理解界定为可观察的类人语言行为；机器翻译阶段则把理解界定为可验证的跨语言转换；这种整体性的理解目标随后被拆解为若干局部能力，并在问答、阅读理解、自然语言推理、情感分析和常识推理等专项任务中得到针对性的验证；进入大模型时代后，用户可以在真实交互中自行判定对话中的理解行为，并进一步将理解的要求提高到在具体任务和环境中达成目标的能力。由此，自然语言理解研究的发展，并不是一个从”不理解”到”理解”的简单跳跃，而更像是理解标准不断提高、理解证据不断增强的逐步发展过程。</p>
+<p>另一方面，技术是不能从理解史中剥离出去的核心内容。虽然受到计算、数据等外部条件的制约，但技术探索仍然在限制中不断取得突破，推进自然语言理解和整个人工智能的不断发展和进步。本文并不主要阐述技术发展历史，但在论述理解的可操作性定义发展演变之外，也简要提及每一种理解定义得以成立、扩展或被替换的技术条件，着重于技术发展与理解发展的共同演化关系。</p>
+<p>关键词：语言理解；可操作性定义；机器翻译；图灵测试；基准评测；大语言模型；任务完成</p>
+</main>
+<nav class="bottom-nav top-nav">
+  <div class="nav-left"></div>
+  <div class="nav-center"><a href="index.html">目录</a></div>
+  <div class="nav-right"><a href="ch01.html" class="next">第一章 引言：语言理解及其可操作化定义 →</a></div>
+</nav>
+</body>
+</html>

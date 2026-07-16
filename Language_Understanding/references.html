@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>参考文献 — 语言理解的探索历程</title>
+  <style>
+    :root {
+      --max-width: 800px;
+      --font-size: 16px;
+      --line-height: 1.8;
+      --color-bg: #fff;
+      --color-text: #333;
+      --color-muted: #666;
+      --color-link: #0366d6;
+      --color-nav-bg: #f5f5f5;
+      --color-border: #ddd;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC", sans-serif;
+      font-size: var(--font-size);
+      line-height: var(--line-height);
+      color: var(--color-text);
+      background: var(--color-bg);
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 1rem 1.5rem 3rem;
+    }
+    nav {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 0.6rem 0; margin-bottom: 1.5rem;
+      border-bottom: 1px solid var(--color-border);
+      font-size: 0.9rem; flex-wrap: wrap; gap: 0.3rem;
+    }
+    nav.bottom { border-top: 1px solid var(--color-border); border-bottom: none; margin-top: 2rem; }
+    nav a { color: var(--color-link); text-decoration: none; padding: 0.2rem 0.5rem; }
+    nav a:hover { text-decoration: underline; }
+    .nav-left, .nav-right, .nav-center { display: flex; gap: 0.5rem; align-items: center; }
+    h1 { font-size: 1.6rem; margin: 0 0 0.8rem; }
+    h2 { font-size: 1.3rem; margin: 1.5rem 0 0.6rem; border-bottom: 1px solid var(--color-border); padding-bottom: 0.3rem; }
+    h3 { font-size: 1.1rem; margin: 1.2rem 0 0.5rem; }
+    h4 { font-size: 1rem; margin: 1rem 0 0.4rem; }
+    p { margin: 0.6rem 0; }
+    blockquote {
+      margin: 0.8rem 0; padding: 0.4rem 1rem;
+      border-left: 3px solid var(--color-link); color: var(--color-muted); background: #f8f8f8;
+    }
+    pre { margin: 0.8rem 0; padding: 0.8rem 1rem; background: #f4f4f4; border-radius: 4px; overflow-x: auto; font-size: 0.85rem; }
+    code { font-family: "SF Mono", "Cascadia Code", "Consolas", monospace; font-size: 0.9em; }
+    pre code { font-size: 0.85em; }
+    figure { margin: 1.2rem 0; text-align: center; }
+    figure img { max-width: 100%; height: auto; border: 1px solid var(--color-border); border-radius: 4px; }
+    figcaption { font-size: 0.9rem; color: var(--color-muted); margin-top: 0.4rem; }
+    .section-footnotes { font-size: 0.9rem; color: var(--color-muted); padding: 0.5rem 0; }
+    .section-footnotes ol { padding-left: 1.5rem; }
+    .section-footnotes li { margin: 0.2rem 0; }
+    .footnote-ref { font-size: 0.8em; vertical-align: super; line-height: 1; }
+    .footnote-backref { font-size: 0.85em; text-decoration: none; }
+    table { margin: 0.8rem 0; border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--color-border); padding: 0.4rem 0.6rem; text-align: left; }
+    th { background: #f5f5f5; }
+    @media (max-width: 600px) {
+      body { padding: 0.5rem 0.8rem 2rem; font-size: 15px; }
+      nav { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+<nav class="top-nav">
+  <div class="nav-left"><a href="appendix.html" class="prev">← 附录：各章思考题参考讨论</a></div>
+  <div class="nav-center"><a href="index.html">目录</a></div>
+  <div class="nav-right"></div>
+</nav>
+<main>
+<h1>参考文献</h1>
+<ol type="1">
+<li>Turing, A. M. (1950). <em>Computing Machinery and
+Intelligence</em>.</li>
+<li>Weizenbaum, J. (1966). <em>ELIZA—A Computer Program for the Study of
+Natural Language Communication Between Man and Machine</em>.</li>
+<li>Winograd, T. (1971). <em>Procedures as a Representation for Data in
+a Computer Program for Understanding Natural Language</em>.</li>
+<li>Weaver, W. (1949). <em>Translation</em>.</li>
+<li>Weaver, W. (1952). <em>Translation</em>.</li>
+<li>IBM (1954). <em>701 Translator / Machine-Aided Translation</em>
+相关材料.</li>
+<li>ALPAC. (1966). <em>Language and Machines: Computers in Translation
+and Linguistics</em>.</li>
+<li>Brown, P. F., et al. (1990). <em>A Statistical Approach to Machine
+Translation</em>.</li>
+<li>Papineni, K., et al. (2002). <em>BLEU: a Method for Automatic
+Evaluation of Machine Translation</em>.</li>
+<li>Bahdanau, D., Cho, K., &amp; Bengio, Y. (2014). <em>Neural Machine
+Translation by Jointly Learning to Align and Translate</em>.</li>
+<li>Bowman, S. R., et al. (2015). <em>A Large Annotated Corpus for
+Learning Natural Language Inference</em>.</li>
+<li>Rajpurkar, P., et al. (2016). <em>SQuAD: 100,000+ Questions for
+Machine Comprehension of Text</em>.</li>
+<li>Vaswani, A., et al. (2017). <em>Attention Is All You Need</em>.</li>
+<li>Wang, A., et al. (2018). <em>GLUE: A Multi-Task Benchmark and
+Analysis Platform for Natural Language Understanding</em>.</li>
+<li>Devlin, J., et al. (2019). <em>BERT: Pre-training of Deep
+Bidirectional Transformers for Language Understanding</em>.</li>
+<li>Wang, A., et al. (2019). <em>SuperGLUE: A Stickier Benchmark for
+General-Purpose Language Understanding Systems</em>.</li>
+<li>Hu, J., et al. (2020). <em>XTREME: A Massively Multilingual
+Multi-task Benchmark for Evaluating Cross-lingual
+Generalization</em>.</li>
+<li>Xu, L., et al. (2020). <em>CLUE: A Chinese Language Understanding
+Evaluation Benchmark</em>.</li>
+<li>Ouyang, L., et al. (2022). <em>Training Language Models to Follow
+Instructions with Human Feedback</em>.</li>
+<li>Yao, S., et al. (2022/2023). <em>ReAct: Synergizing Reasoning and
+Acting in Language Models</em>.</li>
+<li>Schick, T., et al. (2023). <em>Toolformer: Language Models Can Teach
+Themselves to Use Tools</em>.</li>
+<li>Bridgman, P. W. (1927). <em>The Logic of Modern Physics</em>.</li>
+<li>Sapir, E. (1921). <em>Language: An Introduction to the Study of
+Speech</em>.</li>
+<li>Frege, G. (1892). <em>On Sense and Reference</em>.</li>
+<li>Wittgenstein, L. (1953). <em>Philosophical
+Investigations</em>（excerpt）.</li>
+<li>Yu, Z., et al. (2024). <em>KIEval: A Knowledge-grounded Interactive
+Evaluation Framework for Large Language Models</em>.
+链接：<code>https://arxiv.org/abs/2402.15043</code></li>
+<li>Grishman, R. and Sundheim, B. (1996). <em>Message Understanding
+Conference-6: A Brief History</em>. In COLING 1996 Volume 1: The 16th
+International Conference on Computational Linguistics, pages 466–471.
+链接：<code>https://aclanthology.org/C96-1079/</code></li>
+<li>Weizenbaum, J. (1976). <em>Computer Power and Human Reason: From
+Judgment to Calculation</em>. W. H. Freeman, San Francisco.</li>
+<li>Zhu, K., et al. (2024). <em>Dynamic Evaluation of Large Language
+Models by Meta Probing Agents</em>.
+链接：<code>https://arxiv.org/abs/2402.14865</code></li>
+<li>Ni, R., et al. (2024). <em>Benchmarking and Understanding
+Compositional Relational Reasoning of LLMs</em>.
+链接：<code>https://arxiv.org/abs/2412.12841</code></li>
+<li>Cohen-Inger, N., et al. (2025). <em>Forget What You Know about LLMs
+Evaluations — LLMs are Like a Chameleon</em>.
+链接：<code>https://arxiv.org/abs/2502.07445</code></li>
+<li>Zhao, G., et al. (2025). <em>Large Language Models Badly Generalize
+across Option Length, Problem Types, and Irrelevant Noun
+Replacements</em>.
+链接：<code>https://arxiv.org/abs/2502.12459</code></li>
+<li>Choukrani, O., et al. (2025). <em>LLM-BABYBENCH: Understanding and
+Evaluating Grounded Planning and Reasoning in LLMs</em>.
+链接：<code>https://arxiv.org/abs/2505.12135</code></li>
+</ol>
+</main>
+<nav class="bottom-nav top-nav">
+  <div class="nav-left"><a href="appendix.html" class="prev">← 附录：各章思考题参考讨论</a></div>
+  <div class="nav-center"><a href="index.html">目录</a></div>
+  <div class="nav-right"></div>
+</nav>
+</body>
+</html>

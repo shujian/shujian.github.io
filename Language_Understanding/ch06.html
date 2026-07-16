@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>第六章 行动定义——任务完成 — 语言理解的探索历程</title>
+  <style>
+    :root {
+      --max-width: 800px;
+      --font-size: 16px;
+      --line-height: 1.8;
+      --color-bg: #fff;
+      --color-text: #333;
+      --color-muted: #666;
+      --color-link: #0366d6;
+      --color-nav-bg: #f5f5f5;
+      --color-border: #ddd;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC", sans-serif;
+      font-size: var(--font-size);
+      line-height: var(--line-height);
+      color: var(--color-text);
+      background: var(--color-bg);
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 1rem 1.5rem 3rem;
+    }
+    nav {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 0.6rem 0; margin-bottom: 1.5rem;
+      border-bottom: 1px solid var(--color-border);
+      font-size: 0.9rem; flex-wrap: wrap; gap: 0.3rem;
+    }
+    nav.bottom { border-top: 1px solid var(--color-border); border-bottom: none; margin-top: 2rem; }
+    nav a { color: var(--color-link); text-decoration: none; padding: 0.2rem 0.5rem; }
+    nav a:hover { text-decoration: underline; }
+    .nav-left, .nav-right, .nav-center { display: flex; gap: 0.5rem; align-items: center; }
+    h1 { font-size: 1.6rem; margin: 0 0 0.8rem; }
+    h2 { font-size: 1.3rem; margin: 1.5rem 0 0.6rem; border-bottom: 1px solid var(--color-border); padding-bottom: 0.3rem; }
+    h3 { font-size: 1.1rem; margin: 1.2rem 0 0.5rem; }
+    h4 { font-size: 1rem; margin: 1rem 0 0.4rem; }
+    p { margin: 0.6rem 0; }
+    blockquote {
+      margin: 0.8rem 0; padding: 0.4rem 1rem;
+      border-left: 3px solid var(--color-link); color: var(--color-muted); background: #f8f8f8;
+    }
+    pre { margin: 0.8rem 0; padding: 0.8rem 1rem; background: #f4f4f4; border-radius: 4px; overflow-x: auto; font-size: 0.85rem; }
+    code { font-family: "SF Mono", "Cascadia Code", "Consolas", monospace; font-size: 0.9em; }
+    pre code { font-size: 0.85em; }
+    figure { margin: 1.2rem 0; text-align: center; }
+    figure img { max-width: 100%; height: auto; border: 1px solid var(--color-border); border-radius: 4px; }
+    figcaption { font-size: 0.9rem; color: var(--color-muted); margin-top: 0.4rem; }
+    .section-footnotes { font-size: 0.9rem; color: var(--color-muted); padding: 0.5rem 0; }
+    .section-footnotes ol { padding-left: 1.5rem; }
+    .section-footnotes li { margin: 0.2rem 0; }
+    .footnote-ref { font-size: 0.8em; vertical-align: super; line-height: 1; }
+    .footnote-backref { font-size: 0.85em; text-decoration: none; }
+    table { margin: 0.8rem 0; border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--color-border); padding: 0.4rem 0.6rem; text-align: left; }
+    th { background: #f5f5f5; }
+    @media (max-width: 600px) {
+      body { padding: 0.5rem 0.8rem 2rem; font-size: 15px; }
+      nav { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+<nav class="top-nav">
+  <div class="nav-left"><a href="ch05.html" class="prev">← 第五章 交互定义——个性化图灵测试</a></div>
+  <div class="nav-center"><a href="index.html">目录</a></div>
+  <div class="nav-right"><a href="ch07.html" class="next">第七章 问题与讨论：理解的深层争议 →</a></div>
+</nav>
+<main>
+<h1>第六章 行动定义——任务完成</h1>
+
+<h3 id="行动定义的形成">6.1 行动定义的形成</h3>
+<p>交互定义将理解判断依据交给了用户的使用体验，但仅凭对话质量已经不足以支撑关于”理解”的更强主张：许多系统能在对话中生成流畅的回答，却在需要持续追踪条件、调用外部信息、执行多步操作或承担真实后果时暴露不足。如果只能在语言表面维持合理互动，却不能把理解转化为有效行动，那么”理解”便不完整。</p>
+<p>行动定义把理解最终落实为任务成效：一个系统是否理解，不再主要看它说得像不像、答得顺不顺，而看它能否在约束条件下完成任务、实现目标、产生可验证的结果。这种定义并没有否定交互的重要性，而是要求把交互置于更严格的结果检验之下。系统不只要显得懂，还要做得成。</p>
+<h3 id="代表性任务">6.2 代表性任务</h3>
+<p>对系统行动能力进行考察的任务有以下几个代表性类别：数学任务、编程任务、真实应用任务。
+#### 6.2.1 数学任务
+数学任务代表了一类封闭且可验证的情境。在这类任务中，问题输入明确，答案通常具有较清晰的正确性判据，因此它们为”理解是否成立”提供了相对严格的测试。系统若要正确求解，必须真正处理题意、条件、约束和中间推导。相比纯对话，数学更少依赖风格判断，更多依赖目标是否达成。因此，它构成行动定义中的第一层检验：从”会不会说”转向”能不能解”。</p>
+<p>数学任务的重要性还在于，它把”结果正确”重新带回理解评测中心。在交互定义中，一个回答可能因为语气恰当而被用户接受；而在数学中，系统最终必须面对明确的对错。这使数学成为行动定义最清晰、也最严格的低歧义场景之一。</p>
+<h4 id="编程任务">6.2.2 编程任务</h4>
+<p>编程任务比数学更复杂，因为它不仅要求系统理解问题，还要求它生成可执行程序，并在测试、调试和修改等一系列流程中持续调整策略。与此同时，编程任务往往涉及更长的依赖链条、更复杂的局部到整体关系，以及对工具、环境和反馈的持续利用。它因此构成行动定义中的第二层检验：系统不仅要理解语言描述，还要在与程序编译执行环境的交互中把这种理解稳定地落实为可测试的程序产物。</p>
+<p>编程比数学更接近真实世界中的复杂任务：它要求的不只是答案，而是过程中的交互和修正。当然，在编程任务中使用的工具仍然是相对固定和有限的。</p>
+<h4 id="真实应用任务">6.2.3 真实应用任务</h4>
+<p>比数学和编程更进一步的，是开放环境中的真实应用任务，例如信息检索、办公协作、客服处理、研究辅助、流程执行和跨工具工作流等。在这些场景中，目标往往并非一次性给定，评价结果也可能延迟出现，系统调用一些已知工具，如检索工具、查询工具、计算工具等来完成相应任务，同时还必须处理外部环境的不确定性、工具限制和用户动态反馈。此时，理解的含义已经变成：系统能否在复杂环境中持续调整行为，以最终促成任务成功。行动定义在这里达到更强形式：理解必须接受开放环境的检验。</p>
+<p>数学和部分编程任务的评价标准相对明确，而真实应用往往不存在单一标准答案。系统是否”理解”，不再只看即时输出，而要看它是否能在更长时间尺度上推动工作完成。真实应用任务中的理解证据往往更加分散、更加依赖环境反馈。在开放任务中，系统无法仅靠自然、流畅的语言维持”懂了”的印象：它必须处理资源限制、工具失败、信息不全、目标漂移和环境变化。任务完成因此成为比单纯对话更苛刻的理解检验：它要求语言理解最终转化为可承受现实约束的行动能力。</p>
+<h4 id="web-agent-与-gui-agent">6.2.4 Web Agent 与 GUI Agent</h4>
+<p>Web Agent 和 GUI Agent
+等场景正在快速成为行动定义的前沿。相对于以往工作使用相对确定的工具，这类
+agent 不依赖预先定义的 API
+接口，而是直接操作网页或桌面应用程序的图形界面，就像人类用户一样，通过点击按钮、填写表单、滚动页面、阅读屏幕内容来完成任务。</p>
+<p>以 Web Agent 为例，系统面对的是一个真实的网页环境，而非结构化的 API
+调用。Agent 需要解析网页的 HTML
+结构和视觉布局，判断哪些元素可点击、哪些输入框需要填写哪些内容。整个过程要求系统将自然语言指令（“帮我在某购物网站上找一款价格在
+200-300
+元之间的蓝牙耳机”）转化为一系列对网页元素的操作：打开网页→等待加载→定位搜索框→输入关键词→筛选价格区间→浏览结果列表→提取关键信息并汇总。每一步都可能遇到意料之外的情况：页面加载失败、搜索结果为空、商品信息缺字段，Agent
+必须持续观察页面的实时变化，动态调整下一步行动。</p>
+<p>GUI Agent
+则将这一范式扩展到桌面应用场景。系统需要理解按钮、菜单、对话框等界面元素的功能，并通过模拟鼠标点击和键盘输入来操作应用程序。GUI
+Agent
+正在推动理解的定义达到最极致的行动检验：系统不仅要把握用户的口头意图，还要在一个完全为人类视觉和手指交互设计的真实图形界面里，把这种理解稳定地执行到底。</p>
+<p>在这些任务中，除了对任务本身的理解以外，对环境的理解也变成一种对理解的更高要求。</p>
+<h3 id="技术进展">6.3 技术进展</h3>
+<h4 id="长链推理long-chain-of-thought与可验证反馈的强化学习rlvr">6.3.1
+长链推理（Long Chain-of-Thought）与可验证反馈的强化学习（RLVR）</h4>
+<p>2024 年，OpenAI 发布 o1
+系列模型，其核心特性是模型在给出最终答案之前，会进行大量内部推理
+(OpenAI, 2024)，在可见推理轨迹中表现为一段延长的”思考流”（long
+chain-of-thought，longCoT）。这一能力使模型能够处理需要多步推断、假设验证和自我修正的复杂问题。</p>
+<p>以下是 o1 模型在处理密码破解问题时的真实推理片段（示例来自 OpenAI
+官方博客 (OpenAI,
+2024)），清楚展示了这种自主探索与逐步逼近的推理方式：</p>
+<blockquote>
+<p><strong>问题</strong>：<code>oyfjdnisdr rtqwainr acxz mynzbhhx</code>
+对应
+<code>Think step by step</code>，用同样规律破解：<code>oyekaijzdf aaptcg suaokybhai ouow aqht mynznvaatzacdfoulxxz</code></p>
+</blockquote>
+<p>模型的推理轨迹如下（节选，展示关键转折）：</p>
+<pre><code>&quot;首先，注意到：
+  oyfjdnisdr（10字母）→ Think（5字母）
+  rtqwainr（8字母）  → step（4字母）
+  acxz（4字母）      → by（2字母）
+  mynzbhhx（8字母）  → step（4字母）
+
+密文单词长度恰好是明文的两倍。假设：每个明文字母对应两个密文字母。
+
+将 oyfjdnisdr 分成字母对：oy | fj | dn | is | dr
+对应明文字母：T | h | i | n | k
+
+尝试从字母对推出映射规则：
+  oy → T？ o=15, y=25, (15+25)/2 = 20 → &#39;T&#39; ✓
+  fj → h？ f=6, j=10, (6+10)/2 = 8 → &#39;h&#39; ✓
+  dn → i？ d=4, n=14, (4+14)/2 = 9 → &#39;i&#39; ✓
+
+规律确认：每对字母取字母表位置的平均值，即为明文字母。&quot;</code></pre>
+<p>这个推理片段呈现了几个关键特征：模型主动提出假设（“密文是明文的两倍长”），然后进行验证：逐一检验每一对字母的映射关系，遇到不匹配就调整假设方向并继续验证，直到发现规律（平均值映射），并最终解码整句话。整个过程不是一次性的检索或线性推导，而是探索、假设、验证、修正的循环推进，与人类解谜过程极为相似。</p>
+<p>这样的解题过程与分解定义中”会做题”的能力存在本质差异：分解定义下的任务往往对应特定类型的训练分布，缺少主动的反复探索过程，而长链推理则被期望在分布外也能稳定工作。但OpenAI并未公开o1的技术路径。</p>
+<p>DeepSeek的R1研究表明，o1
+所展示的推理能力，与可验证反馈的强化学习（Reinforcement Learning from
+Verifiable Rewards，RLVR）训练密切相关 (DeepSeek AI, 2025)。RLVR
+的本质是让模型自主探索多条可能的推理路径，并以最终结果是否正确（如数学题的数值答案、代码的运行结果）作为训练信号：正确路径获得正向反馈，错误路径被抑制。模型通过这种方式逐步学会”哪些探索方向更可能通向正确结果”，从而在训练中自发习得更复杂的推理策略，包括回溯、假设检验和自我反驳等。特别值得关注的是，在训练过程中，模型推理轨迹的平均长度随训练进行自发增长，说明模型”学会了”在更复杂的问题上花更多时间思考，而不需要人工规定推理步数。</p>
+<h4 id="agentskillsharness结构化的长程执行框架">6.3.2
+Agent/Skills/Harness：结构化的长程执行框架</h4>
+<p>ReAct 和 Toolformer
+等将推理、行动和工具使用组织进统一循环的工作，为复杂的工具调用和任务执行提供了早期的方法论支撑
+(Yao et al., 2022/2023; Schick et al., 2023)。ReAct
+把推理和行动交替组织，在行动—观察—修正中逐步逼近目标，理解不再只是内部一次性完成的表征，而是一种可在环境中逐步校正的过程。Toolformer
+则进一步表明，系统可以在训练中学会主动调用外部工具，使”理解”从模型参数内部扩展为模型、工具与执行环境之间的协同能力</p>
+<p>从数学推理到编程任务，再到真实应用，一个关键难题随着任务复杂性增加而变得突出：如何让模型在长达数百步的执行流程中保持稳定的能力，而不会在中途迷失目标或频繁犯错？</p>
+<p>以 Claude Code 为代表的当代编程 agent
+框架，给出了一种系统性的解决思路。这类系统通常以命令行界面（CLI）或
+agent 的形式提供服务，代表性 CLI 系统包括 Codex、Claude Code 和 Gemini
+CLI 等，代表性 agent 系统包括 OpenClaw 和 Hermes
+等。它们的核心架构分为三个层次：</p>
+<p><strong>Agent
+层（工具调用能力）</strong>：模型被授权调用文件读写、命令行执行、网络检索等外部工具。“理解”在这里不只发生在模型内部，而延伸到了模型与外部环境的交互过程中：模型需要理解何时应该读文件、何时应该运行测试、何时应该搜索文档，并根据工具返回的结果调整下一步行动。</p>
+<p><strong>Skills
+层（可复用能力封装）</strong>：将常见的复杂操作封装成可以被自然语言触发的”技能”（如：“代码审查”、“更新依赖项”、“生成测试用例”等）。技能层把用户用自然语言表达的意图，与底层工具调用之间的复杂映射预先封装好，从而使模型可以用更高层的语义单位来思考问题，而不必每次都重新规划低层操作。</p>
+<p><strong>Harness
+层（执行环境与反馈机制）</strong>：提供完整的执行环境、权限管理、错误捕获和用户确认机制。Harness
+使模型在长程执行过程中始终有一个”安全网”：它定义了哪些操作需要用户确认、如何在出错时提供有用的错误信息、以及如何防止模型在不确定时盲目执行高风险操作。</p>
+<p>这三个层次的组合，实质上解决了行动定义的一个核心挑战：如何把一次性的文本理解，转化为在真实环境中可以持续推进、自我修正的多步执行过程。在这个框架下，“理解”不再只是对单一输入的静态响应，而是对一整个工作流的动态把握：理解用户意图、分解任务目标、选择合适工具、解读执行结果、调整后续策略。</p>
+<p>从更宏观的视角看，Agent/Skills/Harness
+框架标志着”行动定义”的成熟形态：理解的外部证据不再是任何单一的回答正确与否，而是系统能否在一个真实、开放、可能出错的环境中，持续把握目标并把语言理解转化为有效的系统行动。</p>
+<h4 id="参考文献">参考文献</h4>
+<p>OpenAI. 2024. Learning to reason with LLMs. Technical report, OpenAI.
+https://openai.com/index/learning-to-reason-with-llms/</p>
+<p>DeepSeek AI. 2025. DeepSeek-R1: Incentivizing reasoning capability in
+LLMs via reinforcement learning. <em>arXiv preprint
+arXiv:2501.12948</em>.</p>
+<p>Yao, Shunyu, Jeffrey Zhao, Dian Yu, Nan Du, Izhak Shafran, Karthik
+Narasimhan, and Yuan Cao. 2022. ReAct: Synergizing reasoning and acting
+in language models. In <em>Proceedings of ICLR 2023</em>.</p>
+<p>Schick, Timo, Jane Dwivedi-Yu, Roberto Dessì, Roberta Raileanu, Maria
+Lomeli, Luke Zettlemoyer, Nicola Cancedda, and Thomas Scialom. 2023.
+Toolformer: Language models can teach themselves to use tools. In
+<em>Advances in Neural Information Processing Systems 36</em>. Curran
+Associates.</p>
+<h3 id="技术支撑与局限">6.4 技术支撑与局限</h3>
+<p>行动定义成为可行的研究目标，依赖2022年前后几个条件的同时成熟。模型上下文窗口从数千
+token 扩展到数万乃至数十万
+token，使系统能够在单次推理中追踪复杂的多步任务状态；可验证任务（数学竞赛、代码评测）的大规模数据集积累，为强化学习提供了稳定的奖励信号；以
+OpenAI API、Anthropic API
+为代表的大模型服务接口标准化，使外部工具调用以可编程的方式嵌入模型工作流；云端沙箱执行环境的成熟，使代码生成后的实时运行与反馈成为标准基础设施。</p>
+<p>即便如此，部分行动任务的成功仍未终结”什么是理解”的争论。首先，系统的成功往往依赖外部工具、检索系统和环境设计，因此很难把成绩简单归因于”内部理解”。其次，开放环境中的任务评测远比静态
+benchmark
+更难标准化，也更难隔离混杂因素。再次，即便系统能在大量任务中取得成功，仍然存在一个追问：这是因为它真正理解了，还是因为它在统计模式、工具使用和反馈闭环中足够高效。行动定义因此并没有终结争论，而是把争论推进到更高层次：理解是否必须体现为行动能力，以及行动成功与语义理解之间究竟是什么关系。</p>
+<p>近来的 grounded evaluation 研究，又把这一问题向前推了一步。像
+LLM-BabyBench
+这样的工作，已经不再满足于考察模型能否在文本中解释计划，而是进一步要求它在受控环境里追踪状态变化、预测行动后果并把高层目标分解为可执行步骤；另一些关于组合关系推理的研究则表明，模型在进入环境之前，连若干更基础的结构化推理能力也未必足够稳固
+(Choukrani et al., 2025; Ni et al.,
+2024)。这意味着”理解”的最新外部证据，可能进一步扩展为能否在环境中维持一致的目标导向行为。人们如今不仅在问模型会不会说、会不会答，还在问它能否在世界状态不断变化时继续表现出可检验的理解。行动定义可能是目前最严格的外部判据，但未必能终结理解概念的哲学开放性。</p>
+<h4 id="参考文献">参考文献</h4>
+<p>Choukrani, Oussama, et al. 2025. LLM-BabyBench: Understanding and
+evaluating grounded planning and reasoning in LLMs. (preprint,
+arXiv:2505.12135)</p>
+<p>Ni, Ruikang, et al. 2024. Benchmarking and understanding
+compositional relational reasoning of LLMs. (preprint,
+arXiv:2412.12841)</p>
+<h3 id="本章思考题">6.5 本章思考题</h3>
+<p><em>参考讨论见附录”第六章思考题参考讨论”。</em></p>
+<ol type="1">
+<li>为什么”会说”不足以构成强理解证据，而”能做成”会被看作更强的判据？</li>
+<li>数学、编程与真实应用任务这三类场景，对”理解”的要求是否相同？如果不同，差异主要体现在哪里？</li>
+<li>能否举一个例子说明：系统在解释任务时说得头头是道，但一旦真正执行，就暴露出并未理解关键约束？</li>
+<li>如果一个 agent 主要依赖搜索、工具与外部 API
+才完成任务，成功应当归于”模型更理解了”，还是”系统协作更强了”？</li>
+<li>任务完成是否也可能掩盖”内部并未真正理解”的问题，例如系统主要依赖试错、外部反馈或工作流补偿来达到结果？</li>
+<li>在开放任务中，当不存在单一标准答案时，如何判断”做成了”是否真的意味着”理解了”？</li>
+</ol>
+</main>
+<nav class="bottom-nav top-nav">
+  <div class="nav-left"><a href="ch05.html" class="prev">← 第五章 交互定义——个性化图灵测试</a></div>
+  <div class="nav-center"><a href="index.html">目录</a></div>
+  <div class="nav-right"><a href="ch07.html" class="next">第七章 问题与讨论：理解的深层争议 →</a></div>
+</nav>
+</body>
+</html>
